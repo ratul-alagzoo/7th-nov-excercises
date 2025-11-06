@@ -1,2 +1,3 @@
-uv sync
-uv run fastapi dev
+```uv sync```
+
+```uv run fastapi dev```

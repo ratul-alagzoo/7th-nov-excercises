@@ -1,6 +1,6 @@
-
 from fastapi import APIRouter, Query, HTTPException
 
+from dtos.create_lecturer_request_dto import CreateLecturerRequestDTO
 from services.temperature_conversion_service import convert_temperature
 
 router = APIRouter()
@@ -18,3 +18,7 @@ def get_temp_converted(value: float, to: str, from_: str = Query(..., alias="fro
         "converted": res.converted_val,
         "message": res.message
     }
+@router.post("/create-lecturer")
+def create_lecturer(body: CreateLecturerRequestDTO):
+    # TO DO: Create lecturer
+    return  body
