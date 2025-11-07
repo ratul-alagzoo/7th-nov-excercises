@@ -13,12 +13,12 @@ pl_df = pl_df.with_columns([
 ])
 
 # longest name
-max_len = pl_df.select(pl.col("name_length").max())[0, 0]
+max_len = pl_df.select(pl.col("name_length").max()).item()
 longest_names = pl_df.filter(pl.col("name_length") == max_len)
 print("Longest names: ", longest_names)
 
 # shortest name
-min_len = pl_df.select(pl.col("name_length").min())[0, 0]
+min_len = pl_df.select(pl.col("name_length").min()).item()
 shortest_names = pl_df.filter(pl.col("name_length") == min_len)
 print("Shortest names: ", shortest_names)
 
@@ -28,6 +28,6 @@ df = pl_df.with_columns([
 ])
 
 # max stats count
-max_stats = df.select(pl.col("stats_count").max())[0, 0]
+max_stats = df.select(pl.col("stats_count").max()).item()
 most_stats_nodes = df.filter(pl.col("stats_count") == max_stats)
 print("Most statistics nodes: ", most_stats_nodes)
